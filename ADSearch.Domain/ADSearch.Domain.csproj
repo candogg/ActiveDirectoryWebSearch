@@ -43,8 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants\Consts.cs" />
-    <Compile Include="Dto\Base\DtoBase.cs" />
-    <Compile Include="Dto\RequestDto.cs" />
+    <Compile Include="Items\RequestItem.cs" />
     <Compile Include="Items\ResultItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

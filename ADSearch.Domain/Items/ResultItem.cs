@@ -1,20 +1,19 @@
-﻿using System.Net;
-
-namespace ADSearch.Domain.Items
+﻿namespace ADSearch.Domain.Items
 {
+    /// <summary>
+    /// Author: Can DOĞU
+    /// </summary>
     public class ResultItem
     {
         public bool IsOk { get; set; }
         public object Data { get; set; }
         public string Message { get; set; }
-        public HttpStatusCode StatusCode { get; set; }
 
-        public ResultItem(bool isOk = true, object data = null, string message = "", HttpStatusCode httpStatusCode = HttpStatusCode.OK)
+        public ResultItem(bool isOk = true, object data = null, string message = "")
         {
             IsOk = isOk;
             Data = data;
             Message = message;
-            StatusCode = httpStatusCode;
         }
     }
 }

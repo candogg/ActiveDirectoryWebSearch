@@ -1,5 +1,4 @@
-﻿using ADSearch.Domain.Dto;
-using ADSearch.Domain.Items;
+﻿using ADSearch.Domain.Items;
 using ADSearch.Services.Interfaces;
 using ADSearch.Services.Services;
 using System.Threading.Tasks;
@@ -7,6 +6,9 @@ using System.Web.Http;
 
 namespace ADSearch.Web.API.Controllers
 {
+    /// <summary>
+    /// Author: Can DOĞU
+    /// </summary>
     public class UsersController : ApiController
     {
         // variables
@@ -18,7 +20,7 @@ namespace ADSearch.Web.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ResultItem> SearchAsync(RequestDto request)
+        public async Task<ResultItem> SearchAsync(RequestItem request)
         {
             var result = await usersService.SearchAsync(request);
 

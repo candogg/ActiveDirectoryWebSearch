@@ -1,9 +1,11 @@
-﻿using ADSearch.Domain.Dto.Base;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
-namespace ADSearch.Domain.Dto
+namespace ADSearch.Domain.Items
 {
-    public class RequestDto : DtoBase
+    /// <summary>
+    /// Author: Can DOĞU
+    /// </summary>
+    public class RequestItem
     {
         [Required]
         [MaxLength(500)]
@@ -24,7 +26,7 @@ namespace ADSearch.Domain.Dto
 
         public string Password { get; set; }
 
-        public RequestDto()
+        public RequestItem()
         {
             Filter = string.Empty;
             Skip = 0;

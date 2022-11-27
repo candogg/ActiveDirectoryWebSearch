@@ -1,6 +1,8 @@
 ﻿using ADSearch.Common.Extensions;
 using ADSearch.Common.Generic;
-using ADSearch.Domain.Dto;
+using ADSearch.Domain.Constants;
+using ADSearch.Domain.Items;
+using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
 using System.Dynamic;
@@ -14,10 +16,8 @@ namespace ADSearch.Common.Helpers
     /// </summary>
     public class ADHelper : Singleton<ADHelper>
     {
-        public async Task<List<dynamic>> GetUserList(RequestDto requestDto)
+        public async Task<ResultItem> GetUserList(RequestItem requestDto)
         {
-            List<dynamic> userList = new List<dynamic>();
-
             try
             {
                 if (requestDto.Properties.IsNullOrEmpty() || requestDto.LdapServer.IsNullOrEmpty()) return await Task.FromResult<dynamic>(null);
@@ -27,7 +27,9 @@ namespace ADSearch.Common.Helpers
                 {
                     var results = directorySearcher.FindAll().OfType<SearchResult>().Skip(requestDto.Skip).Take(requestDto.Take);
 
-                    if (results == null) return await Task.FromResult(userList);
+                    if (results == null) return await Task.FromResult(new ResultItem(false, null, Consts.ResultNullMessage));
+
+                    var userList = new List<dynamic>();
 
                     foreach (SearchResult result in results)
                     {
@@ -37,12 +39,14 @@ namespace ADSearch.Common.Helpers
 
                         userList.Add(myObject);
                     }
+
+                    return await Task.FromResult(new ResultItem(true, userList));
                 }
             }
-            catch
-            { }
-
-            return await Task.FromResult(userList);
+            catch (Exception ex)
+            {
+                return await Task.FromResult(new ResultItem(false, null, ex.ToString()));
+            }
         }
 
         private async Task<dynamic> CreateObject(string properties, SearchResult result)

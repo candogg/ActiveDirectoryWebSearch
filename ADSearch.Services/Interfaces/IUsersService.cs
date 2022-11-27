@@ -1,11 +1,14 @@
-﻿using ADSearch.Domain.Dto;
+﻿using ADSearch.Domain.Items;
 using ADSearch.Services.Interfaces.Base;
 using System.Threading.Tasks;
 
 namespace ADSearch.Services.Interfaces
 {
+    /// <summary>
+    /// Author: Can DOĞU
+    /// </summary>
     public interface IUsersService<T> : IServiceBase
     {
-        Task<T> SearchAsync(RequestDto requestDto);
+        Task<T> SearchAsync(RequestItem requestDto);
     }
 }

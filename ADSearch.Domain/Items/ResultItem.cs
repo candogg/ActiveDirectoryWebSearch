@@ -15,5 +15,15 @@
             Data = data;
             Message = message;
         }
+
+        public static ResultItem GenerateError(string message = null)
+        {
+            return new ResultItem(false, message: message);
+        }
+
+        public static ResultItem GenerateSuccess(object data = null, string message = null)
+        {
+            return new ResultItem(data: data, message: message);
+        }
     }
 }

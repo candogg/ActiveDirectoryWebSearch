@@ -7,12 +7,12 @@ namespace ADSearch.Common.Extensions
     /// </summary>
     public static class DirectoryEntryExtensions
     {
-        public static DirectorySearcher GetSearcher(this DirectoryEntry entry, string properties, string filter)
+        public static DirectorySearcher GetSearcher(this DirectoryEntry entry, string properties, string filter, bool isGroup = false)
         {
             var searcher = new DirectorySearcher(entry)
             {
                 SearchScope = SearchScope.Subtree,
-                Filter = "(&(objectCategory=person)(objectClass=user)",
+                Filter = isGroup ? "(&(objectCategory=group)(objectClass=group)" : "(&(objectCategory=person)(objectClass=user)",
                 PageSize = int.MaxValue,
                 Sort = new SortOption("cn", SortDirection.Ascending)
             };

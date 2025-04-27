@@ -10,5 +10,6 @@ namespace ADSearch.Services.Interfaces
     public interface IUsersService<T> : IServiceBase
     {
         Task<T> SearchAsync(RequestItem requestDto);
+        Task<T> SearchGroupsAsync(RequestItem requestDto);
     }
 }

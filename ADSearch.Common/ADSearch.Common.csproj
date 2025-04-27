@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\DirectoryEntryExtensions.cs" />
+    <Compile Include="Extensions\SecurityIdentifierExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Generic\Singleton.cs" />
     <Compile Include="Helpers\ADHelper.cs" />

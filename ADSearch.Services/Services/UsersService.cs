@@ -17,5 +17,12 @@ namespace ADSearch.Services.Services
 
             return await ADHelper.Instance.GetUserList(requestDto);
         }
+
+        public async Task<ResultItem> SearchGroupsAsync(RequestItem requestDto)
+        {
+            if (requestDto == null) return new ResultItem(false, null, Consts.SearchDtoNullMessage);
+
+            return await ADHelper.Instance.GetUserListWithGroups(requestDto);
+        }
     }
 }

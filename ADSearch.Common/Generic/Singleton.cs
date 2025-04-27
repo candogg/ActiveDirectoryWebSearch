@@ -11,7 +11,9 @@ namespace ADSearch.Common.Generic
             get
             {
                 if (instance == null)
+                {
                     instance = Activator.CreateInstance<T>();
+                }
 
                 return instance;
             }

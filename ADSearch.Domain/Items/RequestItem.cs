@@ -26,6 +26,8 @@ namespace ADSearch.Domain.Items
 
         public string Password { get; set; }
 
+        public string GroupProperties { get; set; }
+
         public RequestItem()
         {
             Filter = string.Empty;
@@ -33,6 +35,7 @@ namespace ADSearch.Domain.Items
             Take = int.MaxValue;
             UserName = string.Empty;
             Password = string.Empty;
+            GroupProperties = string.Empty;
         }
     }
 }

@@ -26,5 +26,13 @@ namespace ADSearch.Web.API.Controllers
 
             return result;
         }
+
+        [HttpPost]
+        public async Task<ResultItem> SearchForGroupsAsync(RequestItem request)
+        {
+            var result = await usersService.SearchGroupsAsync(request);
+
+            return result;
+        }
     }
 }
